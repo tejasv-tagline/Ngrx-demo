@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { decrement, increment, reset } from '../state/counter.action';
 
 @Component({
   selector: 'app-counter',
@@ -6,24 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit {
-
-  public counter:number=0;
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  public onIncrement():void{
-    this.counter++;
-  }
-
-  public onDecrement():void{
-    this.counter--;
-  }
-
-  public onReset():void{
-    this.counter=0;
-  }
+  ngOnInit() { }
 
 }
