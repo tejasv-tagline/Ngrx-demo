@@ -1,7 +1,9 @@
-export interface counterState {
+export interface CounterState {
     counter: number
+    name:string
 }
 
-export const initialState: counterState = {
-    counter: 0
+export const initialState: CounterState = {
+    counter: 0,
+    name:'Tejas'
 }

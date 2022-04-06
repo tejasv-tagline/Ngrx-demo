@@ -1,5 +1,6 @@
+import { state } from "@angular/animations";
 import { createReducer, on } from "@ngrx/store";
-import { customDecrement, customIncrement, decrement, increment, reset } from "./counter.action";
+import { changeName, customDecrement, customIncrement, decrement, increment, reset } from "./counter.action";
 import { initialState } from "./counter.state";
 
 const _counterReducer = createReducer(initialState,
@@ -31,6 +32,12 @@ const _counterReducer = createReducer(initialState,
         return {
             ...state,
             counter: state.counter - action.counter
+        }
+    }),
+    on(changeName,state=>{
+        return{
+            ...state,
+            name:'Tejas Variya'
         }
     })
 );
