@@ -1,0 +1,5 @@
+<div>
+    <input type="number" placeholder="Ener custom value" class="custom-input" [(ngModel)]="value"> <br>
+    <button class="btn btn-primary mt-3" (click)="onAdd('add')" [disabled]="!value">Add to counter</button><br>
+    <button class="btn btn-danger mt-2" (click)="onAdd('remove')" [disabled]="!value">Substract from counter</button>
+</div>
