@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { AppReducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
