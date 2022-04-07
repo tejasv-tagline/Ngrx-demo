@@ -12,6 +12,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Action0</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +21,7 @@
                         <th scope="row">{{post.id}}</th>
                         <td>{{post.title}}</td>
                         <td>{{post.description}}</td>
+                        <td><a [routerLink]="['edit',post.id]" class="btn btn-primary">Update</a></td>
                     </tr>
 
                 </tbody>
