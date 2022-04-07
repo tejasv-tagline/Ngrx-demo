@@ -12,9 +12,14 @@ const routes: Routes = [
   {
     path: 'counter',
     component: CounterComponent
-  }, {
+  },
+  {
     path: 'posts',
     component: PostsListComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 
