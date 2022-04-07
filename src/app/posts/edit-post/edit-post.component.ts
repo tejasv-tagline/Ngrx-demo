@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
@@ -19,7 +19,7 @@ export class EditPostComponent implements OnInit {
   public post!: Post;
   public postSubscription!: Subscription;
 
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private store: Store) {
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private store: Store,private router:Router) {
     this.myForm = this.fb.group({
       title: '',
       description: ''
@@ -37,21 +37,23 @@ export class EditPostComponent implements OnInit {
     })
   }
 
-  public onUpdate() {
-    const post: Post = {
-      id: this.post.id,
-      title: this.myForm.value.title,
-      description: this.myForm.value.description
-    }
-    this.store.dispatch(updatePost({ post }))
-  }
-
   public createForm(): void {
     this.myForm = this.fb.group({
       title: this.post.title,
       description: this.post.description
     })
   }
+
+  public onUpdate():void {
+    const post: Post = {
+      id: this.post.id,
+      title: this.myForm.value.title,
+      description: this.myForm.value.description
+    }
+    this.store.dispatch(updatePost({ post }))
+    this.router.navigate(['posts'])
+  }
+
 
   ngOnDestroy(): void {
     if (this.postSubscription) {
