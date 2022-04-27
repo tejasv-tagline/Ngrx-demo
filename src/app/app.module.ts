@@ -3,12 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter/counter.component';
-import { CounterOutputComponent } from './counter/counter-output/counter-output.component';
-import { CounterButtonsComponent } from './counter/counter-buttons/counter-buttons.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter/state/counter.reducer';
-import { CustomCounterInputComponent } from './counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -18,14 +13,12 @@ import { environment } from 'src/environments/environment';
 import { AppReducer } from './store/app.state';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { CounterModule } from './counter/counter.module';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent,
-    CounterOutputComponent,
-    CounterButtonsComponent,
-    CustomCounterInputComponent,
     HeaderComponent,
     HomeComponent,
     PostsListComponent,
@@ -36,11 +29,14 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CounterModule,
+    PostsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
+
 
   ],
   providers: [],

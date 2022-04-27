@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
+import { deletePost } from '../state/posts.actions';
 import { getPosts } from '../state/posts.selector';
 
 @Component({
@@ -15,7 +16,16 @@ export class PostsListComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.posts$=this.store.select(getPosts)
+    this.posts$ = this.store.select(getPosts)
+    this.posts$.subscribe(res => {
+      console.log('res :>> ', res);
+    })
   }
 
+  public deletePost(id: any ): void {
+    if (confirm("Are you sure want to delete ?")) {
+      console.log('id :>> ', id);
+      this.store.dispatch(deletePost({id}))
+    }
+  }
 }
