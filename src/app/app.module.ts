@@ -32,7 +32,7 @@ import { PostsModule } from './posts/posts.module';
     CounterModule,
     PostsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(AppReducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),

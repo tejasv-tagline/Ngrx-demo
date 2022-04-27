@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   public myLoginForm!: FormGroup;
   constructor(private router: Router,private fb:FormBuilder) {
     this.myLoginForm=this.fb.group({
-      email:['',[Validators.required,Validators.email]],
+      email:['',[Validators.required]],
       password :['',[Validators.required]]
     })
    }
