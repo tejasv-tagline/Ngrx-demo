@@ -15,6 +15,9 @@ import { AddPostComponent } from './posts/add-post/add-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { CounterModule } from './counter/counter.module';
 import { PostsModule } from './posts/posts.module';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,16 +26,19 @@ import { PostsModule } from './posts/posts.module';
     HomeComponent,
     PostsListComponent,
     AddPostComponent,
-    EditPostComponent
+    EditPostComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CounterModule,
+    HttpClientModule,
     PostsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
