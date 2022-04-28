@@ -1,1 +1,24 @@
-<p>signup works!</p>
+
+<div class="container m-5">
+    <div class="">
+        <h1 class="text-start">Signup</h1>
+        <hr>
+        <form class="form mt-3" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        
+            <div class="form-group">
+                <label for="exampleInputEmail1"></label>
+                <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter email">
+        
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword"></label>
+                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Enter Password">
+        
+            </div>
+            <p href="">Already have an account ? <a (click)="navigateToLogin()" style="cursor: pointer; color:rgb(214, 102, 102);">Login</a>  </p>
+            <button type="submit" class="btn mt-3 btn-submit">Submit</button>
+        </form>
+    </div>
+</div>

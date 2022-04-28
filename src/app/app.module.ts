@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -18,6 +20,7 @@ import { PostsModule } from './posts/posts.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,12 +34,14 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     CounterModule,
     HttpClientModule,
     PostsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
     EffectsModule.forRoot([]),
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+// regular style toast
+@import "~ngx-toastr/toastr";
+
+.btn-submit {
+  color: white;
+  background-color: rgb(214, 102, 102);
+}
+
+.bg-default {
+  background-color: rgba(214, 102, 102, 0.705) !important;
+}
