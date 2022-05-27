@@ -21,6 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthEffects } from './auth/state/auth.effects';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     PostsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    EffectsModule.forRoot([]),
     StoreModule.forRoot(AppReducer),
+    EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),

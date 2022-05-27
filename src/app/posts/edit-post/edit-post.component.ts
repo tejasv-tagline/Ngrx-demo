@@ -39,8 +39,8 @@ export class EditPostComponent implements OnInit {
 
   public createForm(): void {
     this.myForm = this.fb.group({
-      title: this.post.title,
-      description: this.post.description
+      title: this.post.title ? this.post.title: '',
+      description: this.post.description ? this.post.description : ''
     })
   }
 

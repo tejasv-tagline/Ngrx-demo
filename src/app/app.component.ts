@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { autoLogin } from './auth/state/auth.actions';
 import { AppState } from './store/app.state';
 import { getLoading } from './store/shared/shared.selector';
 
@@ -18,5 +19,6 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.showLoading=this.store.select(getLoading);
+    this.store.dispatch(autoLogin())
   }
 }

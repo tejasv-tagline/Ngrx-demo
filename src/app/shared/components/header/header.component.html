@@ -27,7 +27,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <a class="nav-link" style="cursor: pointer;" *ngIf="isAuthenticated | async">Logout</a>
+            <a class="nav-link" style="cursor: pointer;" *ngIf="isAuthenticated | async" (click)="onLogout($event)">Logout</a>
           </li>
         </ul>
       </div>

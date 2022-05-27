@@ -18,13 +18,11 @@ export class PostsListComponent implements OnInit {
   ngOnInit(): void {
     this.posts$ = this.store.select(getPosts)
     this.posts$.subscribe(res => {
-      console.log('res :>> ', res);
     })
   }
 
   public deletePost(id: any ): void {
     if (confirm("Are you sure want to delete ?")) {
-      console.log('id :>> ', id);
       this.store.dispatch(deletePost({id}))
     }
   }

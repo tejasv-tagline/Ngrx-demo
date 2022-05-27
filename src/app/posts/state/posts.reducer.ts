@@ -27,12 +27,9 @@ export const _postsReducer = createReducer(initialState,
         }
     }),
     on(deletePost, (state, { id }) => {
-        console.log('state :>> ', state);
-        console.log('id sate    :>> ', id);
         const updatedPosts = state.posts.filter((post) => 
             post.id !== id
         )
-        console.log('updatedPosts :>> ', updatedPosts);
         return {
             ...state,
             posts :updatedPosts
