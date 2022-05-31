@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateExamComponent } from './create-exam/create-exam.component';
 import { StudentListComponent } from './student-list/student-list.component';
+import { ViewExamsComponent } from './view-exams/view-exams.component';
 
 const routes: Routes = [
   {
@@ -8,8 +10,16 @@ const routes: Routes = [
     component:StudentListComponent
   },
   {
+    path:'create-exam',
+    component:CreateExamComponent
+  },
+  {
+    path:'view-exams',
+    component:ViewExamsComponent
+  },
+  {
     path:'**',
-    redirectTo:'student-list'
+    redirectTo:'view-exams'
   }
 ];
 

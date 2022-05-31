@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,9 +12,21 @@ export class TeacherService {
   constructor(private http:HttpClient) { }
 
   getStudentList(){
-
     return this.http.get(environment.endpoint+ '/dashboard/Teachers',{
       headers:this.headers
     })
+  }
+
+  createExam(data:any){
+    return this.http.post(environment.endpoint + '/dashboard/Teachers/Exam',data,{
+      headers:this.headers
+    })
+  }
+
+  viewExams(){
+    return this.http.get(environment.endpoint+ '/dashboard/Teachers/viewExam',{
+      headers:this.headers
+    })
+    
   }
 }

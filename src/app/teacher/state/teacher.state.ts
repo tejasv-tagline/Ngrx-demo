@@ -2,7 +2,6 @@ import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { TEACHER_STATE_NAME } from "./teacher.selector";
 
 export const teacherState = {
-    studentList: null
 };
 
 const getTeacherState = createFeatureSelector<any>(TEACHER_STATE_NAME);

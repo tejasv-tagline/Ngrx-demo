@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import { initialState } from "src/app/store/shared/shared.state"
-import { loadStudentListSuccess } from "./teacher.actions"
+import { loadStudentListSuccess, viewExamsSuccess } from "./teacher.actions"
 import { teacherState } from "./teacher.state"
 
 export const _teacherReducer = createReducer(teacherState,
@@ -8,6 +8,12 @@ export const _teacherReducer = createReducer(teacherState,
         return {
             ...state,
             studentList: action.student
+        }
+    }),
+    on(viewExamsSuccess, (state:any,action:any)=>{
+        return {
+            ...state,
+            examList : action.examList
         }
     })
     )

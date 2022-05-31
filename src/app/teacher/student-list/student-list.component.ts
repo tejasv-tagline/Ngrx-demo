@@ -15,6 +15,7 @@ export class StudentListComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit() {
+    this.store.dispatch(setLoadingSpinner({ status: true }))
     this.store.dispatch(loadStudentList());
     this.getStudentList();
   }

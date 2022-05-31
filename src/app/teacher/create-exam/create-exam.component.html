@@ -1,0 +1,68 @@
+<div class="container">
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="d-flex justify-content-between mt-5">
+            <h2>Create exam</h2>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-danger me-2" routerLink="/teacher"><i class="fas fa-backward me-2"></i>Back to
+                    home</button>
+                <button type="submit" class="btn btn-success" [disabled]="!isformFormatted" *ngIf="!isCreateExamHide">Create Exam</button>
+                <button class="btn btn-primary" type="button" *ngIf="isCreateExamHide" routerLink="/viewExam">View all exams</button>
+            </div>
+        </div>
+        <div class="text-danger mt-5 d-flex justify-content-end" >
+            Question count : {{counter}} 
+        </div>
+        <div class="form-group mt-1 mb-5">
+            <p>
+                <input type="text" formControlName="subjectName" placeholder="Subject name" class="form-control">
+            </p>
+        </div>
+        <div formArrayName="questions" *ngFor="let quest of myForm.get('questions')['controls'];let i=index" class="mt-3 c-card p-2">
+            <ng-container [formGroupName]="i" >
+                <p>
+                    Question No. {{i+1}}
+                </p>
+                <div class="form-group">
+                    <p>
+                        <input type="text" name="question" formControlName="question" class="form-control"
+                            placeholder="Enter question {{i+1}}">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <input type="text" name="answer" formControlName="answer" class="form-control"
+                            placeholder="Enter answer">
+                    </p>
+                </div>
+            
+                <div formGroupName="options" class="d-flex justify-content-between flex-wrap p-1">
+                        <input type="text" class="w-50 mt-2 form-control" placeholder="Option A" formControlName="option1">
+                        <input type="text" class="w-50 mt-2 form-control" placeholder="Option B" formControlName="option2">
+                        <input type="text" class="w-50 mt-2 form-control" placeholder="Option C" formControlName="option3">
+                        <input type="text" class="w-50 mt-2 form-control" placeholder="Option D" formControlName="option4">
+                </div>
+
+            </ng-container>
+
+            <div class="d-flex justify-content-between mt-4 mb-3">
+                <button type="button" class="btn btn-danger" (click)="removeQuestion(i)"><i class="fas fa-minus me-2"></i>Remove Question</button>
+                <button type="button" class="btn btn-primary" (click)="addQuestion()"><i class="fas fa-plus me-2"></i>Add Question</button>
+            </div>
+            <!-- <hr> -->
+        </div>
+
+        <ng-container formArrayName="notes" *ngFor="let note of myForm.get('notes')['controls']; let i=index">
+            <p>
+                <input type="text" [formControlName]="i" class="mt-4 form-control" name="note-c"
+                    placeholder="Enter note {{i+1}}">
+            </p>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-danger" (click)="removeNote(i)"><i class="fas fa-minus me-2"></i>Remove this note</button>
+                <button type="button" class="btn btn-primary" (click)="addNote()"><i class="fas fa-plus me-2"></i>Add more note</button>
+            </div>
+        </ng-container>
+
+    </form>
+</div>
+
