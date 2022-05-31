@@ -5,7 +5,6 @@ import { Store } from "@ngrx/store";
 import { ToastrService } from "ngx-toastr";
 import { catchError, EMPTY, map, mergeMap, of } from "rxjs";
 import { Observable, switchMap, tap } from "rxjs";
-import { exhaustMap } from "rxjs-compat/operator/exhaustMap";
 import { LoginRespone } from "src/app/models/common";
 import { AuthService } from "src/app/services/auth.service";
 import { AppState } from "src/app/store/app.state";
