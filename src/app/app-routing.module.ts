@@ -12,6 +12,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
     path: 'counter',
     loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule)
   },
@@ -20,8 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    path:'teacher',
+    loadChildren: ()=> import ('./teacher/teacher.module').then(m=>m.TeacherModule)
   },
   {
     path: '**',

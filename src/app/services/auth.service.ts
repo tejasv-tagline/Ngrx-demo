@@ -35,6 +35,7 @@ export class AuthService {
 
   public setUserToLocatStorage(user: LoginResponeData): void {
     localStorage.setItem('userData', JSON.stringify(user));
+    localStorage.setItem('token', user.token);
   }
 
   public getUserFromLocalStorage() {

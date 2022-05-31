@@ -49,8 +49,6 @@ export class AuthEffects {
     loginRedirect$ = createEffect((): any => {
         return this.actions$.pipe(ofType(...[loginSuccess, signupSucess]),
             tap((action: any) => {
-                console.log('action :>> ', action);
-                console.log('action.redirect :>> ', action.redirect);
                 if (action.redirect) {
                     this.router.navigate(['/'])
                 }
@@ -96,6 +94,7 @@ export class AuthEffects {
         return this.actions$.pipe(ofType(autoLogout),
             map((action): any => {
                 localStorage.removeItem('userData');
+                localStorage.removeItem('token');
                 this.router.navigate(['auth']);
             })
         )

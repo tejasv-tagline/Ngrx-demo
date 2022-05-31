@@ -1,0 +1,31 @@
+<div class="container mt-2" *ngIf="studentList">
+    <div class="d-flex justify-content-between">
+        <h3 class="text-center">Showing {{this.studentList.length}} students list</h3>
+        <button class="btn btn-danger" routerLink="/home"><i class="fas fa-backward me-1"></i>Back to home</button>
+    </div>
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of studentList">
+                    <td [ngClass]="{'table-success': data.status==='Active','table-warning':data.status==='Pending'}">
+                        {{data.status}}
+                    </td>
+                    <td>{{data._id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.email}}</td>
+                    <td class="text-center"><a class="fas fa-eye text-decoration-none" [routerLink]="['/viewDetails/'+data._id]"></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
