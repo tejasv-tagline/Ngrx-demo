@@ -15,7 +15,7 @@ import { ViewExamsComponent } from './view-exams/view-exams.component';
   declarations: [
     StudentListComponent,
     CreateExamComponent,
-    ViewExamsComponent
+    ViewExamsComponent,
   ],
   imports: [
     CommonModule,

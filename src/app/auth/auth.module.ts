@@ -5,12 +5,6 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { AUTH_STATE_NAME } from './state/auth.selector';
-import { AuthReducer } from './state/auth.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from './state/auth.effects';
-
 
 @NgModule({
   declarations: [

@@ -17,8 +17,6 @@ export class PostsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this.store.select(getPosts)
-    this.posts$.subscribe(res => {
-    })
   }
 
   public deletePost(id: any ): void {

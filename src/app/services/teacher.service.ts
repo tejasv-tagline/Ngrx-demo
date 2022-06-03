@@ -27,6 +27,17 @@ export class TeacherService {
     return this.http.get(environment.endpoint+ '/dashboard/Teachers/viewExam',{
       headers:this.headers
     })
-    
+  }
+
+  deleteExam(id:string){
+    return this.http.delete(environment.endpoint+ `/dashboard/Teachers/deleteExam?id=${id}`,{
+      headers:this.headers
+    })
+  }
+
+  viewParticularExam(id:string){
+    return this.http.get(environment.endpoint + `/dashboard/Teachers/examDetail?id=${id}`,{
+      headers:this.headers
+    })
   }
 }

@@ -6,7 +6,7 @@ import { ViewExamsComponent } from './view-exams/view-exams.component';
 
 const routes: Routes = [
   {
-    path:'student-list',
+    path:'/student-list',
     component:StudentListComponent
   },
   {

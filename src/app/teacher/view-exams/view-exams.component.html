@@ -1,29 +1,93 @@
 <div class="container mt-2" *ngIf="examList">
-    <div class="d-flex justify-content-between">
-        <h3 class="text-center">Showing {{this.examList.length}} students list</h3>
-        <button class="btn btn-danger" routerLink="/home"><i class="fas fa-backward me-1"></i>Back to home</button>
-    </div>
-    <div class="table-responsive">
+  <div class="d-flex justify-content-between">
+    <h3 class="text-center">Showing total {{this.examList.length}} exams</h3>
+    <button class="btn btn-danger" routerLink="/home"><i class="fas fa-backward me-1"></i>Back to home</button>
+  </div>
+  <div class="table-responsive">
 
-        <table class="table table-bordered table-hover mt-3">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Notes</th>
-                    <th scope="col">View</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of examList">
-                    <td>{{data._id}}</td>
-            
-                    <td>{{data.subjectName}}</td>
-                    <td>{{data.notes}}</td>
-                    <td class="text-center"><a class="fas fa-eye text-decoration-none" [routerLink]="['/viewDetails/'+data._id]"></a></td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-bordered table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Notes</th>
+          <th scope="col">View</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of examList">
+          <td>{{data._id}}</td>
+
+          <td>{{data.subjectName}}</td>
+          <td>{{data.notes}}</td>
+          <td class="text-center"><a class="fas fa-eye text-decoration-none" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" (click)="viewSingleExam(data._id)"></a></td>
+          <td class="text-center"><a class="fas fa-trash text-decoration-none text-danger"
+              (click)="deleteExam(data._id)"></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" tabindex="-1"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title placeholder" id="staticBackdropLabel" *ngIf="!allQuestionBunch">Exam Details</h5>
+        <h5 class="modal-title" id="staticBackdropLabel" *ngIf="allQuestionBunch">Exam Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body placeholder-glow w-100">
+        <div class="card m-5 mt-2" *ngIf="!allQuestionBunch">
+          <div class="card-header placeholder">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title placeholder"></h5>
+            <p class="card-text placeholder"></p>
+
+            <div class="d-flex justify-content-between flex-wrap">
+              <p class="w-50 placeholder"></p>
+              <p class="w-50 placeholder"></p>
+              <p class="w-50 placeholder"></p>
+              <p class="w-50 placeholder"></p> 
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let question of allQuestionBunch">
+          <!-- {{ question}} -->
+          <div class="card m-5 mt-2">
+            <div class="card-header">
+              {{question.question}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Question : {{question.question}}</h5>
+              <p class="card-text">Answer : {{question.answer}}</p>
+
+              <div class="d-flex justify-content-between flex-wrap">
+                <p class="w-50">(a){{question.options[0]}}</p>
+                <p class="w-50">(b){{question.options[1]}}</p>
+                <p class="w-50">(c){{question.options[2]}}</p>
+                <p class="w-50">(d){{question.options[3]}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
 </div>

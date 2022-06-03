@@ -4,7 +4,7 @@ export interface PostsState {
     posts: Post[]
 }
 
-export const initialState :PostsState = {
+export const postsState :PostsState = {
     posts: [
         {
             id: '1', title: 'sample title 1', description: 'sample description 1'
