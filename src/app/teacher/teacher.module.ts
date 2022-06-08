@@ -10,12 +10,14 @@ import { TeacherEffects } from './state/teacher.effects';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewExamsComponent } from './view-exams/view-exams.component';
+import { TeacherComponent } from './teacher.component';
 
 @NgModule({
   declarations: [
     StudentListComponent,
     CreateExamComponent,
     ViewExamsComponent,
+    TeacherComponent,
   ],
   imports: [
     CommonModule,

@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { StudentListComponent } from './student-list/student-list.component';
+import { TeacherComponent } from './teacher.component';
 import { ViewExamsComponent } from './view-exams/view-exams.component';
 
 const routes: Routes = [
   {
-    path:'/student-list',
+    path:'',
+    component:TeacherComponent
+  },
+  {
+    path:'student-list',
     component:StudentListComponent
   },
   {
@@ -19,7 +24,7 @@ const routes: Routes = [
   },
   {
     path:'**',
-    redirectTo:'view-exams'
+    redirectTo:''
   }
 ];
 
